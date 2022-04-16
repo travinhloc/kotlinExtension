@@ -15,6 +15,6 @@
     - Kotlin DSL
 
     ```kotlin
-    implementation("com.github.lock:android-common-ktx:<version>")
+    implementation("com.github.travinhloc:kotlinExtension:<version>")
     ```
 
