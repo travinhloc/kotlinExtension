@@ -3,6 +3,7 @@ package co.lock.common.extensions
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorRes
@@ -16,6 +17,16 @@ fun Activity.hideSoftKeyboard() {
         val inputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
         inputMethodManager?.hideSoftInputFromWindow(it.windowToken, 0)
+    }
+}
+
+/**
+ * Request to show the soft input window and focus to view
+ */
+fun showSoftKeyboard(view: View) {
+    if (view.requestFocus()) {
+        val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
     }
 }
 
